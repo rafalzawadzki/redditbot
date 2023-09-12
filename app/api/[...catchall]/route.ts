@@ -7,9 +7,10 @@ export const revalidate = 10;
 export async function GET(request: Request) {
   const urlObj = new URL(request.url);
   const path = urlObj.pathname.replace("/api/", "");
+  const queryParams = urlObj.search;
 
   try {
-    const redditResponse = await fetch(`https://api.reddit.com/${path}`);
+    const redditResponse = await fetch(`https://api.reddit.com/${path}${queryParams}`);
     const redditData = await redditResponse.json();
 
     if (redditData && redditData.data && Array.isArray(redditData.data.children)) {
