@@ -4,7 +4,7 @@ openapi: 3.0.0
     version: 1.0.0
     description: An API specification for a simple Reddit client. 
   servers:
-    - url: https://chatwith.tools/api/wrapper/hunted-space
+    - url: https://redditbot.chat/api/
   paths:
     /r/{subreddit}/top.json:
       get:
