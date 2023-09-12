@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Simple Reddit API
   version: 1.0.0
-  description: An API specification for a simple Reddit client. Using this API you can respond to user queries by searching any subreddit or category.
+  description: An API specification for a simple Reddit client. Using this API you can respond to user queries by searching any subreddit or listing type.
 servers:
   - url: https://redditbot.chat/api/
 paths:
