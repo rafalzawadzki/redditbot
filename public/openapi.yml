@@ -2,36 +2,79 @@ openapi: 3.0.0
 info:
   title: Simple Reddit API
   version: 1.0.0
-  description: An API specification for a simple Reddit client.
+  description: An API specification for a simple Reddit client. Using this API you can respond to user queries by searching any subreddit or category.
 servers:
   - url: https://redditbot.chat/api/
 paths:
-  /r/{subreddit}/top.json:
+  /r/{subreddit}/{listing}.json:
     get:
-      summary: Fetch top stories from a specific subreddit
+      summary: Fetch stories from a specific subreddit by listing type
       parameters:
         - name: subreddit
           in: path
           required: true
           schema:
             type: string
+        - name: listing
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - hot
+              - new
+              - rising
+              - top
+              - controversial
         - name: limit
           in: query
           schema:
             type: integer
       responses:
         "200":
-          description: A JSON object containing top stories
+          description: A JSON object containing stories
+
+  /{listing}.json:
+    get:
+      summary: Fetch stories from all subreddits by listing type
+      parameters:
+        - name: listing
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - hot
+              - new
+              - rising
+              - top
+              - controversial
+        - name: limit
+          in: query
+          schema:
+            type: integer
 
   /r/{subreddit}/search.json:
     get:
-      summary: Search for a topic within a subreddit
+      summary: Search for a topic within any subreddit
       parameters:
         - name: subreddit
           in: path
           required: true
           schema:
             type: string
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A JSON object containing search results
+  /search.json:
+    get:
+      summary: Search for a topic within all subreddits
+      parameters:
         - name: q
           in: query
           required: true
