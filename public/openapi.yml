@@ -1,60 +1,60 @@
 openapi: 3.0.0
-  info:
-    title: Simple Reddit API
-    version: 1.0.0
-    description: An API specification for a simple Reddit client. 
-  servers:
-    - url: https://redditbot.chat/api/
-  paths:
-    /r/{subreddit}/top.json:
-      get:
-        summary: Fetch top stories from a specific subreddit
-        parameters:
-          - name: subreddit
-            in: path
-            required: true
-            schema:
-              type: string
-          - name: limit
-            in: query
-            schema:
-              type: integer
-        responses:
-          '200':
-            description: A JSON object containing top stories
-  
-    /r/{subreddit}/search.json:
-      get:
-        summary: Search for a topic within a subreddit
-        parameters:
-          - name: subreddit
-            in: path
-            required: true
-            schema:
-              type: string
-          - name: q
-            in: query
-            required: true
-            schema:
-              type: string
-        responses:
-          '200':
-            description: A JSON object containing search results
-  
-    /r/{subreddit}/comments/{post_id}.json:
-      get:
-        summary: Retrieve user comments from a specific post
-        parameters:
-          - name: subreddit
-            in: path
-            required: true
-            schema:
-              type: string
-          - name: post_id
-            in: path
-            required: true
-            schema:
-              type: string
-        responses:
-          '200':
-            description: A JSON object containing comments
+info:
+  title: Simple Reddit API
+  version: 1.0.0
+  description: An API specification for a simple Reddit client.
+servers:
+  - url: https://redditbot.chat/api/
+paths:
+  /r/{subreddit}/top.json:
+    get:
+      summary: Fetch top stories from a specific subreddit
+      parameters:
+        - name: subreddit
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: A JSON object containing top stories
+
+  /r/{subreddit}/search.json:
+    get:
+      summary: Search for a topic within a subreddit
+      parameters:
+        - name: subreddit
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A JSON object containing search results
+
+  /r/{subreddit}/comments/{post_id}.json:
+    get:
+      summary: Retrieve user comments from a specific post
+      parameters:
+        - name: subreddit
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: post_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A JSON object containing comments
