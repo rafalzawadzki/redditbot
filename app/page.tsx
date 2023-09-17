@@ -6,7 +6,7 @@ const CHATWITH_CHATBOT_URL =
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-5 md:p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex flex-col">
         <div className="border border-1 border-zinc-800 rounded-md h-[700px] w-full overflow-hidden isolate">
           <iframe
